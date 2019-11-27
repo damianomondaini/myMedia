@@ -2,6 +2,9 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
+let passeportInstagram = require('passport-instagram');
+let passport = require('passport');
+let morgan = require('morgan');
 
 require('dotenv').config();
 
@@ -26,8 +29,22 @@ app.set('view engine', 'ejs');
 // App use
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(morgan('dev'));
+
+// Instagram login
+let configInstagram = require('./config/instagram');
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, done) => {
+    done(null, user);
+});
+passport.deserializeUser((user, done) => {
+    done(null, user);
+});
 
 // Routes
+let auth = require('./routes/auth.route');
 let test = require('./routes/test.route');
 app.use('/test', test);
 

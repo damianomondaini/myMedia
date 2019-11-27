@@ -21,6 +21,6 @@ router.post('/post', test_controller.test_add, (req, res) => {
 
 router.post('/:id/edit', test_controller.test_edit, (req, res) => {
     res.redirect('/test');
-})
+});
 
 module.exports = router;
