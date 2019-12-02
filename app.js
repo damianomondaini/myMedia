@@ -2,14 +2,15 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
-let passeportInstagram = require('passport-instagram');
 let passport = require('passport');
+let passportGoogle = require('passport-google-oauth');
 let morgan = require('morgan');
+let httpsLocalhost = require('https-localhost');
 
 require('dotenv').config();
 
 // Create app
-let app = express();
+let app = httpsLocalhost();
 
 // Connection MongoDB
 mongoose.set('useFindAndModify', false);
@@ -31,20 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 
-// Instagram login
-let configInstagram = require('./config/instagram');
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser((user, done) => {
-    done(null, user);
-});
-passport.deserializeUser((user, done) => {
-    done(null, user);
-});
-
 // Routes
-let auth = require('./routes/auth.route');
 let test = require('./routes/test.route');
 app.use('/test', test);
 
