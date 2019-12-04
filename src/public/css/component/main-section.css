@@ -1,0 +1,36 @@
+.main-section {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    min-height: calc(100vh - 80px);
+}
+
+.main-section__main {
+    border-left: 2px solid #17936F;
+    border-right: 2px solid #17936F;
+    padding: 20px;
+}
+
+.main-section__sorting {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-section__select {
+    width: 45%;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #134B5F;
+}
+
+.main-section__main > * {
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+article:last-child {
+    margin-bottom: 0;
+}
+
+.project-comment:last-child {
+    margin-bottom: 0;
+}

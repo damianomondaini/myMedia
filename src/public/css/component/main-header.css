@@ -1,0 +1,44 @@
+.main-header {
+    background-color: #134B5F;
+    height: 40px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header__logo-link {
+    height: 100%;
+}
+
+.main-header__logo {
+    height: 100%;
+}
+
+.main-header__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-header__item {
+    margin-left: 10px;
+}
+
+.main-header__item-link {
+    color: #FFFFFF;
+    padding: 5px;
+    font-size: 1.44em;
+    text-decoration: none;
+}
+
+.main-header__item-link--active {
+    background-color: white;
+    color: #134B5F;
+    border-radius: 15px;
+}
+
+.main-header__item-link:hover {
+    text-decoration: underline;
+}

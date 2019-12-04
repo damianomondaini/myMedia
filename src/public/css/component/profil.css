@@ -1,0 +1,107 @@
+.profil-user {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profil-user__name {
+    font-size: 2.441em;
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0;
+}
+
+.profil-user__color {
+    height: 50px;
+    width: 50px;
+    background-color: #17936F;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+.profil-projet {
+    border: 1px solid #114B5F;
+    border-radius: 15px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profil-projet__title {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.profil-projet__category {
+    margin-bottom: 0;
+}
+
+.profil-color-picker__choice{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.profil-color-picker__choice--blue {
+    background-color: #114B5F;
+}
+
+.profil-color-picker__choice--green {
+    background-color: #17936F;
+}
+
+.profil-color-picker__choice--light-green {
+    background-color: #88D498;
+}
+
+.profil-color-picker__choice--very-light-green {
+    background-color: #C6DABF;
+}
+
+.profil-color-picker__choice--beige {
+    background-color: #F3E9D2;
+}
+
+.profil-color-picker {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profil-year__select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #134B5F;
+}
+
+.profil-validate {
+    display: flex;
+    justify-content: center;
+}
+
+.profil-validate__button {
+    width: 40%;
+    border: 0;
+    background-color: #17936F;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1.25em;
+}
+
+.profil-delete {
+    display: flex;
+    justify-content: center;
+}
+
+.profil-delete__button {
+    width: 40%;
+    border: 0;
+    background-color: #134B5F;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1.25em;
+}

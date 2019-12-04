@@ -1,0 +1,76 @@
+.project-img {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.project-video {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.project-audio {
+    width: 100%;
+}
+
+.project-audio::-webkit-media-controls-panel {
+    background-color: white;
+}
+
+.project-about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-about__actions-link {
+    color: #17936F;
+    text-decoration: none;
+}
+
+.project-about__user {
+    display: flex;
+    align-items: center;
+}
+
+.project-about__user-color {
+    background: #17936F;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+.project-about__user-name {
+    font-size: 1.953em;
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0;
+}
+
+.project-about__actions-link {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.project-about__actions-link-icon {
+    font-size: 1.953em;
+}
+
+.project-stats__text {
+    font-size: 1.563em;
+}
+
+.project-content__text {
+    font-size: 1.25em;
+    line-height: 1.5;
+}
+
+.project-comment__author {
+    font-size: 1.563em;
+    font-family: 'Didact Gothic', sans-serif;
+    margin-top: 0;
+}
+
+.project-comment__text {
+    margin: 0;
+}
