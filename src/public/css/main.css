@@ -1,5 +1,5 @@
 /* Libraries */
-@import 'other/normalize.css';
+@import '../../vendor/css/normalize.css';
 
 /* Google Font */
 @import url('https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic&display=swap');

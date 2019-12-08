@@ -6,6 +6,7 @@ let ProjectSchema = new Schema({
     mediaType: {type: String, required: true},
     mediaLink: {type: String, required: true},
     date: {type: Date, required: true},
+    description: {type: String, required: true},
     category: {type: Schema.Types.ObjectId, ref: 'Category'},
     user: {type: Schema.Types.ObjectId, ref: 'User'}
 });

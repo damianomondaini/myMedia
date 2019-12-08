@@ -127,3 +127,12 @@
     width: 100%;
     display: flex;
 }
+
+.article-actions__button-link-icon {
+    font-size: 1.728em;
+    color: #17936F;
+}
+
+.article-actions__buttons-link {
+    margin-right: 20px;
+}

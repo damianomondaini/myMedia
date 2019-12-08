@@ -1,0 +1,82 @@
+<%- include('../include/head') %>
+<%- include('../include/header') %>
+
+<section class="main-section">
+    <aside class="main-section__aside-left"></aside>
+    <main class="main-section__main">
+        <h1 class="main-section__title">Trier par :</h1>
+        <div class="main-section__sorting">
+            <select name="category" id="select-category" class="main-section__select">
+                    <option value="all" class="main-section__option">Toutes les categories</option>
+                <% for (let i = 0; i < data['categories'].length; i++) { %>
+                    <option value="<%= data['categories'][i]._id; %>" class="main-section__option"><%= data['categories'][i].name; %></option>
+                <% } %>
+            </select>
+            <select name="year" id="select-year" class="main-section__select">
+                <option value="all" class="main-section__option">Toutes les années</option>
+                <option value="1" class="main-section__option">1ère</option>
+                <option value="2" class="main-section__option">2ème</option>
+                <option value="3" class="main-section__option">3ème</option>
+                <option value="4" class="main-section__option">4ème</option>
+            </select>
+        </div>
+
+        <% for (let i = 0; i < data['projects'].length; i++) { %>
+            <article class="article">
+                <header class="article-header">
+                    <div class="article-header__user">
+                        <div class="article-header__user-color"></div>
+                        <p class="article-header__user-name"><%= data['projects'][i].user.name %></p>
+                    </div>
+                    <div class="article-header__about">
+                        <a href="#" class="article-header__about-share-link">
+                            <i class="article-header__about-share-icon">S</i>
+                        </a>
+                    </div>
+                </header>
+                <% if (data['projects'][i].mediaType === 'media-img') { %>
+                    <a href="projet/<%= data['projects'][i]._id %>" class="article-img__link">
+                        <img src="https://drive.google.com/uc?export=view&id=<%= data['projects'][i].mediaLink %>" alt="Image du média" class="article-img">
+                    </a>
+                <% } %>
+                <% if (data['projects'][i].mediaType === 'media-audio') { %>
+                    <audio class="article-audio" controls>
+                        <source src="https://drive.google.com/uc?export=view&id=<%= data['projects'][i].mediaLink %>" type="audio/mpeg">
+                        <p>Votre navigateur ne prend pas en charge l'audio HTML. Voici un <a href="https://drive.google.com/uc?export=view&id=<%= data['projects'][i].mediaLink %>">lien vers le fichier audio</a> pour le télécharger.</p>
+                    </audio>
+                <% } %>
+                <% if (data['projects'][i].mediaType === 'media-video') { %>
+                    <video class="article-video" controls>
+                        <source src="https://drive.google.com/uc?export=view&id=<%= data['projects'][i].mediaLink %>" type="video/mp4">
+                        <p>Votre navigateur ne prend pas en charge la vidéo HTML. Voici un <a href="https://drive.google.com/uc?export=view&id=<%= data['projects'][i].mediaLink %>">lien vers le fichier vidéo</a> pour le télécharger.</p>
+                    </video>
+                <% } %>
+                <div class="article-content">
+                    <div class="article-content__details">
+                        <a href="<%= data['projects'][i]._id %>" class="article-content__title-link">
+                            <h3 class="article-content__title"><%= data['projects'][i].title %></h3>
+                        </a>
+                        <a href="projet/category/<%= data['projects'][i].category._id %>" class="article-content__category-link"><%= data['projects'][i].category.name %></a>
+                    </div>
+                    <p class="article-content__text"><%= data['projects'][i].description %></p>
+                </div>
+                <div class="article-actions">
+                    <div class="article-actions__buttons">
+                        <a href="#" class="article-actions__buttons-link article-actions__buttons-link--like"><i class="far fa-heart article-actions__button-link-icon"></i></a>
+                        <a href="#" class="article-actions__buttons-link article-actions__buttons-link--comment"><i class="far fa-comment article-actions__button-link-icon"></i></a>
+                    </div>
+                    <div class="article-actions__stats">
+                        <p class="article-actions__stats-text">12035 likes • 34 commentaires</p>
+                    </div>
+                </div>
+                <div class="article-more">
+                    <a href="projet/details/<%= data['projects'][i]._id %>" class="article-more__link">Voir en détail</a>
+                </div>
+            </article>
+        <% } %>
+
+    </main>
+    <aside class="main-section__aside-right"></aside>
+</section>
+
+<%- include('../include/foot') %>

@@ -9,6 +9,6 @@ router.get('/button', (req, res) => {
 
 router.post('/passport', passport.authenticate('local', { failureRedirect: '/error' }), (req, res) => {
     console.log('Posted');
-})
+});
 
 module.exports = router;
