@@ -5,7 +5,9 @@ let UserSchema = new Schema({
     googleId: {type: String, required: true},
     email: {type: String, required: true},
     name: {type: String, required: true},
-    picture: {type: String, required: true}
+    picture: {type: String, required: true},
+    isAdmin: {type: Boolean, required: true},
+    year: {type: Number, required: true},
 });
 
 module.exports = mongoose.model('User', UserSchema);

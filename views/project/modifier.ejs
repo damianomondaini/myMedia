@@ -1,0 +1,55 @@
+<%- include('../include/head') %>
+<%- include('../include/header') %>
+
+<section class="main-section">
+    <aside class="main-section__aside-left"></aside>
+    <main class="main-section__main">
+        <h1 class="form-title">Ajouter un projet</h1>
+        <h2 class="form-subtitle">Titre du projet</h2>
+        <div class="form-inner">
+            <input type="text" name="title-input" id="title-input" class="form-inner__input-title" placeholder="Titre du projet" value="<%= data.project.title %>">
+        </div>
+        <h2 class="form-subtitle">Média</h2>
+        <div class="form-inner">
+            <div class="form-inner__radio">
+                <input type="radio" name="media-input" id="media-img" value="video" class="form-inner__input-media">
+                <label for="media-img">Image</label>
+            </div>
+            <div class="form-inner__radio">
+                <input type="radio" name="media-input" id="media-video" value="video" class="form-inner__input-media">
+                <label for="media-video">Vidéo</label>
+            </div>
+            <div class="form-inner__radio">
+                <input type="radio" name="media-input" id="media-audio" value="audio" class="form-inner__input-media">
+                <label for="media-audio">Audio</label>
+            </div>
+            <div class="form-inner__radio">
+                <input type="radio" name="media-input" id="media-none" value="none" class="form-inner__input-media">
+                <label for="media-none">Aucun</label>
+            </div>
+            <div class="form-inner__radio">
+                <input type="file" name="media-file" id="media-file">
+            </div>
+        </div>
+        <h2 class="form-subtitle">Catégorie</h2>
+        <div class="form-inner">
+            <select name="category-select" id="category-select" class="form-inner__select">
+                <% for (let i = 0; i < data['categories'].length; i++) { %>
+                    <option value="<%= data['categories'][i]._id; %>" class="form-inner__select-option" <% if (data.project.category.name === data.categories[i].name) {%> selected <%}%>><%= data['categories'][i].name; %></option>
+                <% } %>
+            </select>
+        </div>
+        <h2 class="form-subtitle">Description</h2>
+        <div class="form-inner">
+            <textarea name="description-textarea" id="description-textarea" cols="30" rows="10" class="form-inner__textarea" placeholder="Description du projet (200 caractères max.)"><%= data.project.description %></textarea>
+        </div>
+        <div class="form-submit">
+            <button class="form-submit__button" id="submit-button">VALIDER</button>
+        </div>
+    </main>
+    <aside class="main-section__aside-right"></aside>
+</section>
+
+<script src="/src/public/js/ajax/project-edit.js"></script>
+
+<%- include('../include/foot') %>

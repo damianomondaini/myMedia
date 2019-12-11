@@ -1,0 +1,48 @@
+<%- include('../include/head') %>
+<%- include('../include/header') %>
+
+<section class="main-section">
+    <aside class="main-section__aside-left"></aside>
+    <main class="main-section__main">
+        <div class="profil-user">
+            <div class="profil-user__color" style="background-image: url('<%= data.user.picture %>');"></div>
+            <p class="profil-user__name"><%= data.user.name %></p>
+        </div>
+        <h1 class="profil-title">Mes projets</h1>
+        <% for (let i = 0; i < data.projects.length; i++) { %>
+            <div class="profil-projet">
+                <div class="profil-projet__text">
+                    <p class="profil-projet__title"><%= data.projects[i].title %></p>
+                    <p class="profil-projet__category"><%= data.projects[i].category.name %></p>
+                </div>
+                <div class="profil-projet__date">
+                    <p class="profil-projet__date-text"><%= data.projects[i].date.toISOString().slice(0, 10) %></p>
+                </div>
+                <div class="profil-projet__actions">
+                    <a href="/projet/modifier/<%= data.projects[i]._id %>/<%= data.projects[i].user.googleId %>" class="profil-projet__actions-link"><i class="profil-projet__actions-link-icon far fa-edit"></i></a>
+                    <a href="/projet/supprimer/<%= data.projects[i]._id %>/<%= data.projects[i].user.googleId %>" class="profil-projet__actions-link"><i class="profil-projet__actions-link-icon fas fa-trash"></i></a>
+                </div>
+            </div>
+        <% } %>
+        <h1 class="profil-title">Mes préférences</h1>
+        <h2 class="profil-subtitle">Année</h2>
+        <select name="year" id="select-year" class="profil-year__select">
+            <option value="1" class="profil-year__option">1ère</option>
+            <option value="2" class="profil-year__option">2ème</option>
+            <option value="3" class="profil-year__option">3ème</option>
+            <option value="4" class="profil-year__option">4ème</option>
+        </select>
+        <div class="profil-validate">
+            <button class="profil-validate__button">VALIDER</button>
+        </div>
+        <h2 class="profil-subtitle">Supprimer mon compte</h2>
+        <div class="profil-delete">
+            <button class="profil-delete__button">SUPPRIMER</button>
+        </div>
+    </main>
+    <aside class="main-section__aside-right"></aside>
+</section>
+
+<script src="/src/public/js/ajax/user-profil.js"></script>
+
+<%- include('../include/foot') %>

@@ -24,6 +24,7 @@
 
 .main-header__item {
     margin-left: 10px;
+    display: flex;
 }
 
 .main-header__item-link {
@@ -31,6 +32,8 @@
     padding: 5px;
     font-size: 1.44em;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .main-header__item-link--active {
@@ -41,4 +44,8 @@
 
 .main-header__item-link:hover {
     text-decoration: underline;
+}
+
+#profil-list-item {
+    display: none;
 }

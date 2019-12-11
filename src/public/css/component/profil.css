@@ -13,9 +13,10 @@
 .profil-user__color {
     height: 50px;
     width: 50px;
-    background-color: #17936F;
     border-radius: 100%;
     margin-right: 15px;
+    background-position: center center;
+    background-size: cover;
 }
 
 .profil-projet {
@@ -23,7 +24,23 @@
     border-radius: 15px;
     padding: 10px 20px;
     display: flex;
-    justify-content: space-between;
+}
+
+.profil-projet__text {
+    width: 50%;
+}
+
+.profil-projet__date {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profil-projet__actions {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
 }
 

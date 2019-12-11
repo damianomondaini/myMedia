@@ -21,5 +21,35 @@
         <input type="text" name="category-add" id="category-add">
         <input type="submit" value="Envoyer">
     </form>
+    <h2>Projects</h2>
+    <h3>All</h3>
+    <% for (let i = 0; i < data['projects'].length; i++) { %>
+        <div>
+            <p><%= data['projects'][i].title; %></p>
+            <p><%= data['projects'][i].category.name; %></p>
+            <p><%= data['projects'][i].mediaType; %></p>
+            <p><%= data['projects'][i].user.name; %></p>
+            <p><a href="/admin/project-delete/<%= data['projects'][i]._id; %>">Delete</a></p>
+        </div>
+    <% } %>
+    <h2>Users</h2>
+    <h3>Add</h3>
+    <form action="/admin/user-add" method="post">
+        <input type="text" name="name" id="name" placeholder="Name"><br>
+        <input type="text" name="password" id="password" placeholder="Password"><br>
+        <input type="text" name="role" id="role" placeholder="Role"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>Years</h2>
+    <h3>All</h3>
+    <% for (let i = 0; i < data['projects'].length; i++) { %>
+        <p><%= data['years'][i].name; %></p>
+    <% } %>
+    <h3>Add</h3>
+    <form action="/admin/year-add" method="post">
+        <input type="text" name="year" id="year" placeholder="Year"><br>
+        <input type="text" name="name" id="name" placeholder="Name">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

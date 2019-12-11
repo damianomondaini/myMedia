@@ -4,11 +4,12 @@
     </a>
     <nav class="main-header__nav">
         <ul class="main-header__list">
-            <li class="main-header__item"><a href="accueil.html" class="main-header__item-link">Accueil</a></li>
-            <li class="main-header__item"><a href="ajouter.html" class="main-header__item-link main-header__item-link--active">Ajouter</a></li>
-            <li class="main-header__item"><a href="decouvrir.html" class="main-header__item-link">Découvrir</a></li>
-            <li class="main-header__item"><a href="login.html" class="main-header__item-link">Se connecter</a></li>
-            <li class="main-header__item"><a href="profil.html" class="main-header__item-link">Damiano Mondaini</a></li>
+            <li class="main-header__item"><a href="/" class="main-header__item-link">Accueil</a></li>
+            <li class="main-header__item"><a href="/projet/ajouter" class="main-header__item-link">Ajouter</a></li>
+            <li class="main-header__item"><a href="#" class="main-header__item-link">Découvrir</a></li>
+            <li class="main-header__item" id="profil-list-item"><a href="#" class="main-header__item-link">Mon profil</a></li>
+            <li class="main-header__item"><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
+            <li class="main-header__item"><a href="#" class="main-header__item-link" onclick="signOut();"><i class="fas fa-sign-out-alt"></i></a></li>
         </ul>
     </nav>
 </header>
