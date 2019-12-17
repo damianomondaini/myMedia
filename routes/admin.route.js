@@ -5,7 +5,7 @@ let categoryController = require('../controllers/category.controller');
 let projectController = require('../controllers/project.controller');
 let yearController = require('../controllers/year.controller');
 
-router.get('/dashboard', categoryController.admin_all_category, projectController.admin_all_project, (req, res) => {
+router.get('/dashboard', categoryController.admin_all_category, projectController.admin_all_project, yearController.admin_year_all, (req, res) => {
     res.render('admin/dashboard', { data: res.locals });
 });
 

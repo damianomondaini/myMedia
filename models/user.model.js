@@ -7,7 +7,7 @@ let UserSchema = new Schema({
     name: {type: String, required: true},
     picture: {type: String, required: true},
     isAdmin: {type: Boolean, required: true},
-    year: {type: Number, required: true},
+    year: {type: Schema.Types.ObjectId, ref: 'Year'}
 });
 
 module.exports = mongoose.model('User', UserSchema);

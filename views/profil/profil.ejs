@@ -27,22 +27,17 @@
         <h1 class="profil-title">Mes préférences</h1>
         <h2 class="profil-subtitle">Année</h2>
         <select name="year" id="select-year" class="profil-year__select">
-            <option value="1" class="profil-year__option">1ère</option>
-            <option value="2" class="profil-year__option">2ème</option>
-            <option value="3" class="profil-year__option">3ème</option>
-            <option value="4" class="profil-year__option">4ème</option>
+            <% for (let i = 0; i < data['years'].length; i++) { %>
+                <option value="<%= data['years'][i]._id %>" class="main-section__option" <% if(data.user.year.year == data['years'][i].year){ %> selected <% } %>><%= data['years'][i].year %><%= data['years'][i].name %></option>
+            <% } %>
         </select>
         <div class="profil-validate">
-            <button class="profil-validate__button">VALIDER</button>
-        </div>
-        <h2 class="profil-subtitle">Supprimer mon compte</h2>
-        <div class="profil-delete">
-            <button class="profil-delete__button">SUPPRIMER</button>
+            <button class="profil-validate__button" id="submit-button">VALIDER</button>
         </div>
     </main>
     <aside class="main-section__aside-right"></aside>
 </section>
 
-<script src="/src/public/js/ajax/user-profil.js"></script>
+<script src="/src/public/js/ajax/year.js"></script>
 
 <%- include('../include/foot') %>

@@ -7,9 +7,11 @@ let drive = require('../middleware/drive');
 
 let categoryController = require('../controllers/category.controller');
 let projectController = require('../controllers/project.controller');
-let userConstroller = require('../controllers/user.controller');
+let userController = require('../controllers/user.controller');
+let yearController = require('../controllers/year.controller');
+let commentController = require('../controllers/comment.controller');
 
-router.get('/', categoryController.category_all, projectController.project_all, (req, res) => {
+router.get('/', categoryController.category_all, projectController.project_all, yearController.year_all, (req, res) => {
     res.render('project/accueil', { data: res.locals });
 });
 
@@ -31,9 +33,24 @@ router.get('/projet/supprimer/:id/:googleId', projectController.project_delete, 
     res.redirect('/');
 });
 
-router.get('/profil/:googleId', userConstroller.user_profil, (req, res) => {
+router.get('/profil/:googleId', userController.user_profil, yearController.year_all, (req, res) => {
     res.render('profil/profil', {data: res.locals });
 });
 
+router.get('/projet/category/:id', categoryController.category_all, projectController.project_category, yearController.year_all, (req, res) => {
+    res.render('project/accueil', { data: res.locals });
+});
+
+router.get('/projet/year/:id', categoryController.category_all, projectController.project_year, yearController.year_all, (req, res) => {
+    res.render('project/accueil', { data: res.locals });
+});
+
+router.get('/projet/decouvrir', projectController.project_random, (req, res) => {
+    res.render('project/details', { data: res.locals });
+});
+
+router.post('/commentaire/ajouter', commentController.comment_add, (req, res) => {});
+
+router.post('/profil/update', userController.user_update, (req, res) => {});
 
 module.exports = router;

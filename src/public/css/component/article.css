@@ -20,7 +20,7 @@
 }
 
 .article-header__user-color {
-    background: #17936F;
+    background-size: cover;
     height: 30px;
     width: 30px;
     border-radius: 100%;

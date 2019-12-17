@@ -15,3 +15,23 @@ exports.admin_add_year = (req, res, next) => {
         next();
     }
 }
+
+exports.admin_year_all = (req, res, next) => {
+    Year.find({}).exec((err, years) => {
+        if (err) throw err;
+        if (years) {
+            res.locals['years'] = years;
+            next();
+        }
+    });
+}
+
+exports.year_all = (req, res, next) => {
+    Year.find({}).exec((err, years) => {
+        if (err) throw err;
+        if (years) {
+            res.locals['years'] = years;
+            next();
+        }
+    });
+}

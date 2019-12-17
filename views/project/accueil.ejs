@@ -14,10 +14,9 @@
             </select>
             <select name="year" id="select-year" class="main-section__select">
                 <option value="all" class="main-section__option">Toutes les années</option>
-                <option value="1" class="main-section__option">1ère</option>
-                <option value="2" class="main-section__option">2ème</option>
-                <option value="3" class="main-section__option">3ème</option>
-                <option value="4" class="main-section__option">4ème</option>
+                <% for (let i = 0; i < data['years'].length; i++) { %>
+                    <option value="<%= data['years'][i]._id %>" class="main-section__option"><%= data['years'][i].year %><%= data['years'][i].name %></option>
+                <% } %>
             </select>
         </div>
 
@@ -25,17 +24,12 @@
             <article class="article">
                 <header class="article-header">
                     <div class="article-header__user">
-                        <div class="article-header__user-color"></div>
+                        <div class="article-header__user-color" style="background-image: url('<%= data['projects'][i].user.picture %>');"></div>
                         <p class="article-header__user-name"><%= data['projects'][i].user.name %></p>
-                    </div>
-                    <div class="article-header__about">
-                        <a href="#" class="article-header__about-share-link">
-                            <i class="article-header__about-share-icon">S</i>
-                        </a>
                     </div>
                 </header>
                 <% if (data['projects'][i].mediaType === 'media-img') { %>
-                    <a href="projet/<%= data['projects'][i]._id %>" class="article-img__link">
+                    <a href="projet/details/<%= data['projects'][i]._id %>" class="article-img__link">
                         <img src="https://drive.google.com/uc?export=view&id=<%= data['projects'][i].mediaLink %>" alt="Image du média" class="article-img">
                     </a>
                 <% } %>
@@ -56,17 +50,17 @@
                         <a href="projet/details/<%= data['projects'][i]._id %>" class="article-content__title-link">
                             <h3 class="article-content__title"><%= data['projects'][i].title %></h3>
                         </a>
-                        <a href="projet/category/<%= data['projects'][i].category._id %>" class="article-content__category-link"><%= data['projects'][i].category.name %></a>
+                        <a href="/projet/category/<%= data['projects'][i].category._id %>" class="article-content__category-link"><%= data['projects'][i].category.name %></a>
                     </div>
                     <p class="article-content__text"><%= data['projects'][i].description %></p>
                 </div>
                 <div class="article-actions">
                     <div class="article-actions__buttons">
                         <a href="#" class="article-actions__buttons-link article-actions__buttons-link--like"><i class="far fa-heart article-actions__button-link-icon"></i></a>
-                        <a href="#" class="article-actions__buttons-link article-actions__buttons-link--comment"><i class="far fa-comment article-actions__button-link-icon"></i></a>
+                        <a href="projet/details/<%= data['projects'][i]._id %>" class="article-actions__buttons-link article-actions__buttons-link--comment"><i class="far fa-comment article-actions__button-link-icon"></i></a>
                     </div>
                     <div class="article-actions__stats">
-                        <p class="article-actions__stats-text">12035 likes • 34 commentaires</p>
+                        <p class="article-actions__stats-text">12035 likes</p>
                     </div>
                 </div>
                 <div class="article-more">
@@ -78,5 +72,7 @@
     </main>
     <aside class="main-section__aside-right"></aside>
 </section>
+
+<script src="/src/public/js/jquerry/filter.js"></script>
 
 <%- include('../include/foot') %>

@@ -4,7 +4,7 @@
 <section class="main-section">
     <aside class="main-section__aside-left"></aside>
     <main class="main-section__main">
-        <h1 class="project-title">Refonte page d'accueil</h1>
+        <h1 class="project-title"><%= data['project'].title %></h1>
         <% if (data['project'].mediaType === 'media-img') { %>
         <img src="https://drive.google.com/uc?export=view&id=<%= data['project'].mediaLink %>"
             alt="<%= data['project'].title %>" class="article-img">
@@ -32,31 +32,34 @@
                 <a href="#" class="project-about__actions-link"><i class="project-about__actions-link-icon fa fa-share"></i></a>
             </div>
             <div class="project-about__user">
-                <div class="project-about__user-color"></div>
+                <div class="profil-user__color" style="background-image: url('<%= data['project'].user.picture %>');"></div>
                 <p class="project-about__user-name"><%= data['project'].user.name %></p>
             </div>
         </div>
         <div class="project-stats">
-            <p class="project-stats__text">12035 likes • 34 commentaires</p>
+            <p class="project-stats__text">12035 likes • <%= data['comments'].length; %> commentaires</p>
         </div>
         <div class="project-content">
             <p class="project-content__text"><%= data['project'].description %></p>
         </div>
+        <h1 class="form-title">Ajouter un commentaire</h1>
+        <div class="form-inner">
+            <textarea data-id="<%= data['project']._id %>" name="comment_area" id="comment_area" cols="30" rows="10" class="form-inner__textarea form-inner__textarea--comment" placeholder="Ajoutez votre commentaire"></textarea>
+        </div>
+        <div class="form-submit">
+            <button class="form-submit__button" id="submit-button">VALIDER</button>
+        </div>
         <h1 class="project-title">Commentaires</h1>
-        <div class="project-comment">
-            <p class="project-comment__author">Michel</p>
-            <p class="project-comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non id
-                cupiditate facilis corrupti quo laudantium fugit dolor fugiat dignissimos odit, velit quas aliquam
-                ipsam, magnam quod eveniet molestiae ea! Officia!</p>
-        </div>
-        <div class="project-comment">
-            <p class="project-comment__author">Michel</p>
-            <p class="project-comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non id
-                cupiditate facilis corrupti quo laudantium fugit dolor fugiat dignissimos odit, velit quas aliquam
-                ipsam, magnam quod eveniet molestiae ea! Officia!</p>
-        </div>
+        <% for (let i = 0; i < data['comments'].length; i++) { %>
+            <div class="project-comment">
+                <p class="project-comment__author"><%= data['comments'][i].user.name %></p>
+                <p class="project-comment__text"><%= data['comments'][i].comment %></p>
+            </div>
+        <% } %>
     </main>
     <aside class="main-section__aside-right"></aside>
 </section>
+
+<script src="/src/public/js/ajax/comment.js"></script>
 
 <%- include('../include/foot') %>

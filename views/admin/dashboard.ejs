@@ -42,8 +42,8 @@
     </form>
     <h2>Years</h2>
     <h3>All</h3>
-    <% for (let i = 0; i < data['projects'].length; i++) { %>
-        <p><%= data['years'][i].name; %></p>
+    <% for (let i = 0; i < data['years'].length; i++) { %>
+        <p><%= data['years'][i].year; %> <%= data['years'][i].name; %></p>
     <% } %>
     <h3>Add</h3>
     <form action="/admin/year-add" method="post">

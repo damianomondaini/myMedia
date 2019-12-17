@@ -84,3 +84,7 @@
 #media-file {
     display: none;
 }
+
+.form-inner__textarea--comment {
+    min-height: 200px;
+}

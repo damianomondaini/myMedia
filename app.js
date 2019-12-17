@@ -1,6 +1,5 @@
 // Require packages
 let express = require('express');
-let expressSession = require('express-session');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 

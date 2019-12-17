@@ -1,6 +1,7 @@
 let {OAuth2Client} = require('google-auth-library');
 let client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 let User = require('../models/user.model');
+let Year = require('../models/year.model');
 
 exports.auth_verify = (req, res, next) => {
     if(req.body.token) {
@@ -18,18 +19,21 @@ exports.auth_verify = (req, res, next) => {
             if(googleId != undefined && email != undefined && name != undefined && picture != undefined) {
                 User.findOne({googleId: googleId}, (err, user) => {
                     if(!user) {
-                        let user = new User({
-                            googleId: googleId,
-                            email: email,
-                            name: name,
-                            picture: picture,
-                            isAdmin: false,
-                            year: 1
-                        });
-    
-                        user.save((err, user) => {
-                            if (err) throw err;
-                            res.json(googleId)
+                        Year.findOne({year: 1}).exec((err, year) => {
+                            if(err) throw err;
+                            let user = new User({
+                                googleId: googleId,
+                                email: email,
+                                name: name,
+                                picture: picture,
+                                isAdmin: false,
+                                year: year._id
+                            });
+        
+                            user.save((err, user) => {
+                                if (err) throw err;
+                                res.json(googleId)
+                            });
                         });
                     } else {
                         res.json(googleId)
