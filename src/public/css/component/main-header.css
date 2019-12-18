@@ -49,3 +49,17 @@
 #profil-list-item {
     display: none;
 }
+
+@media screen and (max-width: 820px) {
+    .main-header__logo {
+        display: none;
+    }
+
+    .main-header {
+        justify-content: center;
+    }
+
+    .main-header__list > * {
+        font-size: 0.55em;
+    }
+}

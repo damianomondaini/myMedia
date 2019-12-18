@@ -27,5 +27,5 @@ function signOut() {
 
 function profilLink(googleId) {
     $('#profil-list-item > a').attr('href', '/profil/' + googleId);
-    $('#profil-list-item').show();
+    $('#profil-list-item').css('display', 'flex');
 }
