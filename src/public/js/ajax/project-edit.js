@@ -14,6 +14,7 @@ $('#submit-button').on('click', function () {
         if (title === '' || mediaType === undefined || description === '' || category === undefined || googleId === undefined || mediaType != 'media-none' && media === undefined) {
             alert("Le formulaire n'est pas rempli correctement ou connectez-vous");
         } else {
+            $('#submit-button').off();
             var form = new FormData()
             form.append('title', title);
             form.append('mediaType', mediaType);
