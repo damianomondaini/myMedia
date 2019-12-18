@@ -13,7 +13,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect('mongodb+srv://myMedia-admin:ktjln6ylj4FT4N6YgN42N87Z466i@mymedia-main-nb6sk.gcp.mongodb.net/myMedia?retryWrites=true&w=majority');
 mongoose.connection.on('error', (err) => {
     console.log('%s MongoDB connection error. Please make sure MongoDB is running.');
     process.exit();

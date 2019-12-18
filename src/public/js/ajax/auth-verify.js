@@ -1,6 +1,6 @@
 function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
-    /*$.ajax({
+    $.ajax({
         url: "/auth/verify",
         data: {
             token: id_token
@@ -15,7 +15,7 @@ function onSignIn(googleUser) {
         success: function (googleId) {
             profilLink(googleId);
         }
-    });*/
+    });
 }
 
 function signOut() {
